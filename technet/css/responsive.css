@@ -3668,6 +3668,110 @@
 
 
 
+/* ==========================================================================
+   Responsive fixes — appended
+   Fixes fixed-width elements that force horizontal scrolling on small
+   screens. Scoped to small viewports so the desktop/tablet layout is
+   left exactly as the theme designed it.
+   ========================================================================== */
+
+/* Safety net: never allow a stray element to create sideways scroll */
+@media only screen and (max-width: 991px) {
+	body {
+		overflow-x: hidden;
+	}
+}
+
+/* The sign-up form fields were hard-locked at 385px / 390px wide — wider
+   than most phones — which forced a horizontal scrollbar. Make them fluid. */
+@media only screen and (max-width: 480px) {
+	.sign-up-section-home2 .sign-up .sign-up-form .form-input-bx input,
+	.sign-up-section-home2-classic .sign-up .sign-up-form .form-input-bx input,
+	.sign-up-section-home3 .sign-up .sign-up-form .form-input-bx input,
+	.sign-up-section-home3-classic .sign-up .sign-up-form .form-input-bx input {
+		width: 100% !important;
+		max-width: 100%;
+	}
+
+	.sign-up-section-home2 .sign-up .sign-up-form .form-input-bx,
+	.sign-up-section-home2-classic .sign-up .sign-up-form .form-input-bx,
+	.sign-up-section-home3 .sign-up .sign-up-form .form-input-bx,
+	.sign-up-section-home3-classic .sign-up .sign-up-form .form-input-bx {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+/* Fixed-size boxes / media must never be wider than the viewport. */
+@media only screen and (max-width: 599px) {
+	.offer-section-three .image-column .image-box,
+	.why-choose-section-home2 .choose-box,
+	.why-choose-section-home2-classic .choose-box,
+	.about-section-home2 .about-counter-wrapper .about-counter,
+	.branch-block .inner-box,
+	.why-choose-section-one .why-choose-thumb,
+	.contact-section-home2 .contact-thumb .contact-autor-info {
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+/* Mega dropdown must always fit inside the viewport. */
+@media only screen and (max-width: 1199px) {
+	.mega-sub-menu {
+		width: min(750px, calc(100vw - 40px)) !important;
+	}
+}
+
+/* ==========================================================================
+   Icon fallback
+   The theme markup uses the "Linearicons" set (lnr-icon-*), which is not
+   bundled with this project, so the mobile-menu button rendered as an empty
+   box on every page. Draw the hamburger in pure CSS so the navigation button
+   is always visible and never depends on a font file being present.
+   ========================================================================== */
+
+.lnr-icon-bars::before {
+	content: "";
+	display: inline-block;
+	width: 18px;
+	height: 2px;
+	background-color: currentColor;
+	box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+	vertical-align: middle;
+}
+
+/* ==========================================================================
+   Phones — hero section
+   The hero was pulled up under the absolutely-positioned header (negative
+   margin) and its <h1> kept the desktop size down to 425px, so on phones the
+   logo collided with the headline and the title overflowed sideways.
+   Let the hero flow normally below the header and scale the title down.
+   ========================================================================== */
+
+@media only screen and (max-width: 767px) {
+	.banner-section-one {
+		align-items: flex-start !important;
+		height: auto !important;
+		margin: 0 !important;
+		padding: 140px 0 60px !important;
+	}
+
+	.banner-section-one .banner-content-wrap {
+		margin-top: 0;
+	}
+
+	.banner-section-one .banner-content-wrap .banner-title h1 {
+		font-size: 34px;
+		line-height: 42px;
+	}
+
+	.banner-section-one .banner-content-wrap .banner-info-box {
+		margin-right: 0;
+		padding-bottom: 40px;
+	}
+}
+
 @media only screen and (min-width: 768px) {
 
 	.main-menu .navigation>li>ul,
