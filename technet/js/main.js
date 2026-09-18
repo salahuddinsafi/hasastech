@@ -615,9 +615,49 @@
 			nextEl: ".slider-next",
 			prevEl: ".slider-prev",
 		},
-	});
+});
 
-	// feature-home2-active
+// testi-one-active
+var testiOneSlider = new Swiper(".testi-one-active", {
+	speed: 1500,
+	slidesPerView: "auto",
+	spaceBetween: 30,
+	autoplay: false,
+	loop: true,
+	centeredSlides: false,
+	watchOverflow: true,
+	breakpoints: {
+		1920: {
+			slidesPerView: 3,
+		},
+		1400: {
+			slidesPerView: 2,
+		},
+		1200: {
+			slidesPerView: 2,
+		},
+		992: {
+			slidesPerView: 2,
+		},
+		768: {
+			slidesPerView: 1,
+		},
+		576: {
+			slidesPerView: 1,
+		},
+		0: {
+			slidesPerView: 1,
+		},
+	},
+
+	// Navigation arrows
+	navigation: {
+		nextEl: ".slider-next",
+		prevEl: ".slider-prev",
+	},
+});
+
+// feature-home2-active
 	var featureSlider = new Swiper(".feature-home2-active", {
 		speed: 1500,
 		slidesPerView: 4,

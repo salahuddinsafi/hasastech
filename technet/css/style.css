@@ -10033,6 +10033,17 @@ Section Title
   font-size: 16px;
   color: var(--theme-color-white);
 }
+.testimonial-section-one .single-testi-box {
+  transition: all 300ms ease;
+}
+.testimonial-section-one .single-testi-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.testimonial-section-one .single-testi-box:hover .testi-autor img {
+  transform: scale(1.1);
+  transition: all 300ms ease;
+}
 .testimonial-section-one .testimonial-wrapper {
   position: relative;
 }
