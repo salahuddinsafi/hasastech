@@ -579,6 +579,61 @@
 		},
 	});
 
+	// projectSlider3 (Work Showcase)
+	var projectSlider3 = new Swiper("#projectSlider3", {
+		speed: 1000,
+		slidesPerView: 1,
+		spaceBetween: 24,
+		loop: true,
+		autoplay: false,
+		grabCursor: true,
+		simulateTouch: true,
+		breakpoints: {
+			0: {
+				slidesPerView: 1,
+			},
+			576: {
+				slidesPerView: 1,
+			},
+			768: {
+				slidesPerView: 1,
+			},
+			992: {
+				slidesPerView: 1,
+				centeredSlides: true,
+				centeredSlidesBounds: true,
+			},
+			1200: {
+				slidesPerView: 4,
+				slidesPerGroup: 4,
+			},
+			1921: {
+				slidesPerView: 4,
+				slidesPerGroup: 4,
+			},
+		},
+
+		// Navigation arrows
+		navigation: {
+			nextEl: document.querySelector(".slider-arrow[data-slider-next='#projectSlider3']"),
+			prevEl: document.querySelector(".slider-arrow[data-slider-prev='#projectSlider3']"),
+		},
+	});
+
+	// Atek-style navigation click handlers for data-slider-prev/next
+	$(document).on("click", "[data-slider-prev], [data-slider-next]", function() {
+		var target = $(this).data("slider-prev") || $(this).data("slider-next");
+		var slider = $(target);
+		if (slider.length && slider[0].swiper) {
+			var swiper = slider[0].swiper;
+			if ($(this).data("slider-prev")) {
+				swiper.slidePrev();
+			} else {
+				swiper.slideNext();
+			}
+		}
+	});
+
 	// main-home testi-classic-active
 	var testiSlider = new Swiper(".testi-classic-active", {
 		speed: 1500,
