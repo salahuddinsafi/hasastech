@@ -12019,6 +12019,7 @@ Section Title
   padding: 150px 0 70px;
   position: relative;
   margin-top: -30px;
+  
 }
 .main-footer-one.classic {
   margin: 0;
@@ -12107,6 +12108,7 @@ Section Title
   position: relative;
   z-index: 1;
   padding: 110px 0 82px;
+  
 }
 .main-footer-one .main-footer-section .footer-shape2 {
   position: absolute;
@@ -12124,7 +12126,7 @@ Section Title
   background-size: cover;
   border-radius: 50px;
   width: 1850px;
-  height: 612px;
+  /* height: 612px; */
   left: -265px;
   top: 0;
 }
@@ -18670,13 +18672,14 @@ section.feature-section.style__new {
 .customer-touch {
   position: relative;
   z-index: 1;
+  margin-top: 30px;
 }
 .customer-touch::before {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 170px;
+  /* height: 170px; */
   content: "";
   background: #031740;
   z-index: -1;
@@ -18686,20 +18689,22 @@ section.feature-section.style__new {
   background: url(../images/footer-subscribebg.png) no-repeat center center;
   background-size: cover;
   border-radius: 24px;
-  padding: 100px 80px;
+  padding: 30px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 24px;
+  margin-bottom: -90px;
 }
+
 .customer-touch-wrap .section-title {
   max-width: 610px;
 }
 @media (max-width: 991px) {
   .customer-touch-wrap {
     justify-content: center;
-    padding: 60px 30px;
+    padding: 30px 20px;
   }
   .customer-touch-wrap .section-title {
     margin: 0 auto;
@@ -18709,7 +18714,7 @@ section.feature-section.style__new {
 @media (max-width: 575px) {
   .customer-touch-wrap {
     justify-content: center;
-    padding: 60px 20px;
+   padding: 30px 20px;
   }
   .customer-touch-wrap .section-title {
     margin: 0 auto;
@@ -18722,7 +18727,7 @@ section.feature-section.style__new {
 ============================================================== */
 
 .space {
-  padding: 120px 0;
+  padding: 0px 0;
 }
 
 .overflow-hidden {
