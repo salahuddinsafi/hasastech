@@ -37,3 +37,4 @@ const testimonialSwiper = new Swiper('.testimonial__swiper', {
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (reduceMotion.matches) testimonialSwiper.autoplay.stop();
+

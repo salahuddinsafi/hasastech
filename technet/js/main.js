@@ -1469,3 +1469,6 @@ var testiOneSlider = new Swiper(".testi-one-active", {
 })(window.jQuery);
 
 
+// New Js 
+
+
