@@ -217,37 +217,360 @@ button { font: inherit; }
   background: var(--primary);
 }
 
-@media (min-width: 700px) {
-  .testimonial__swiper { padding-inline: 20px; }
-  .testimonial__card { width: 350px; }
+/* =========================================================
+   RESPONSIVE ONLY
+   No design/style changes to the original desktop layout
+   ========================================================= */
+
+/* ---------- Large screens ---------- */
+@media (min-width: 1440px) {
+  .containers {
+    width: min(1160px, calc(100% - 80px));
+  }
+
+  .testimonial__swiper {
+    padding-inline: 30px;
+  }
 }
-@media (min-width: 1024px) {
-  .containers { width: min(1160px, calc(100% - 80px)); }
-  .testimonial__content { margin-top: 54px; }
-  .testimonial__swiper { padding-inline: 30px; }
-  .testimonial__card { width: 360px; }
+
+/* ---------- Tablet / Small laptop ---------- */
+@media (min-width: 700px) and (max-width: 1023px) {
+  .containers {
+    width: min(1160px, calc(100% - 48px));
+  }
+
+  .testimonial {
+    min-height: 100svh;
+    padding-top: 70px;
+    padding-bottom: 65px;
+  }
+
+  .testimonial__swiper {
+    width: 100%;
+    padding-inline: 20px;
+  }
+
+  .testimonial__card {
+    width: 350px;
+    max-width: calc(100vw - 80px);
+  }
+
+  .testimonial__content {
+    width: 100%;
+  }
 }
+
+/* ---------- Mobile ---------- */
 @media (max-width: 699px) {
-  .testimonial { min-height: auto; }
-  .testimonial__desktop-break { display: none; }
-  .testimonial__card { min-height: 330px; padding: 48px 24px 26px; border-radius: 22px; }
-  .testimonial__img { width: 82px; height: 82px; }
-  .testimonial__quote { left: 17px; top: 14px; font-size: 2.4rem; }
+  .containers {
+    width: calc(100% - 32px);
+    max-width: 1160px;
+  }
+
+  .testimonial {
+    min-height: auto;
+    width: 100%;
+    padding-top: clamp(44px, 10vw, 70px);
+    padding-bottom: clamp(42px, 10vw, 65px);
+  }
+
+  .testimonial__header {
+    width: 100%;
+  }
+
+  .testimonial__eyebrow {
+    max-width: 100%;
+    margin-bottom: 16px;
+    font-size: .72rem;
+    padding: 7px 11px;
+  }
+
+  .testimonial__title {
+    max-width: 100%;
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: .98;
+  }
+
+  .testimonial__intro {
+    width: 100%;
+    max-width: 580px;
+    margin-top: 16px;
+    font-size: clamp(.88rem, 3.5vw, 1rem);
+    line-height: 1.65;
+  }
+
+  .testimonial__content {
+    width: 100%;
+    margin-top: clamp(28px, 7vw, 45px);
+  }
+
+  .testimonial__swiper {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 8px 88px;
+    overflow: hidden;
+  }
+
+  .testimonial__card {
+    width: min(360px, calc(100vw - 48px));
+    max-width: calc(100vw - 48px);
+    min-height: 330px;
+    padding: 48px 24px 26px;
+    border-radius: 22px;
+  }
+
+  .testimonial__img {
+    width: 82px;
+    height: 82px;
+  }
+
+  .testimonial__quote {
+    left: 17px;
+    top: 14px;
+    font-size: 2.4rem;
+  }
+
+  .testimonial__description {
+    max-width: 290px;
+    font-size: .9rem;
+    line-height: 1.7;
+  }
+
+  .testimonial__controls {
+    height: 50px;
+    gap: 14px;
+  }
+
+  .testimonial__button {
+    flex: 0 0 42px;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .testimonial__controls .swiper-pagination {
+    gap: 6px;
+    max-width: calc(100% - 120px);
+    overflow: hidden;
+  }
 }
+
+/* ---------- Small phones ---------- */
+@media (max-width: 480px) {
+  .containers {
+    width: calc(100% - 28px);
+  }
+
+  .testimonial {
+    padding-top: 44px;
+    padding-bottom: 48px;
+  }
+
+  .testimonial__eyebrow {
+    font-size: .68rem;
+    letter-spacing: .07em;
+  }
+
+  .testimonial__title {
+    font-size: clamp(1.85rem, 10vw, 2.5rem);
+  }
+
+  .testimonial__intro {
+    font-size: .88rem;
+  }
+
+  .testimonial__content {
+    margin-top: 30px;
+  }
+
+  .testimonial__swiper {
+    padding-inline: 5px;
+    padding-bottom: 84px;
+  }
+
+  .testimonial__card {
+    width: calc(100vw - 38px);
+    max-width: calc(100vw - 38px);
+    min-height: 320px;
+    padding: 46px 21px 25px;
+  }
+
+  .testimonial__img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .testimonial__name {
+    font-size: 1.08rem;
+  }
+
+  .testimonial__role {
+    font-size: .75rem;
+  }
+
+  .testimonial__rating {
+    gap: 9px;
+    margin: 17px 0 13px;
+  }
+
+  .testimonial__stars {
+    gap: 2px;
+  }
+
+  .testimonial__stars i {
+    font-size: .86rem;
+  }
+
+  .testimonial__number {
+    font-size: .82rem;
+  }
+
+  .testimonial__description {
+    max-width: 280px;
+    font-size: .86rem;
+    line-height: 1.7;
+  }
+
+  .testimonial__controls {
+    gap: 12px;
+  }
+
+  .testimonial__button {
+    flex-basis: 40px;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* ---------- Very small phones: 280px–380px ---------- */
 @media (max-width: 380px) {
-  .containers { width: min(100% - 28px, 1160px); }
-  .testimonial { padding-top: 44px; }
-  .testimonial__card { width: calc(100vw - 38px); }
-  .testimonial__swiper { padding-inline: 5px; }
-  .testimonial__intro { font-size: .86rem; }
-  .testimonial__description { font-size: .87rem; }
+  .containers {
+    width: calc(100% - 24px);
+  }
+
+  .testimonial {
+    padding-top: 40px;
+  }
+
+  .testimonial__eyebrow {
+    font-size: .64rem;
+    padding: 6px 9px;
+  }
+
+  .testimonial__title {
+    font-size: clamp(1.7rem, 10vw, 2.2rem);
+  }
+
+  .testimonial__intro {
+    font-size: .84rem;
+  }
+
+  .testimonial__swiper {
+    padding-inline: 3px;
+  }
+
+  .testimonial__card {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    min-height: 310px;
+    padding: 44px 18px 23px;
+  }
+
+  .testimonial__img {
+    width: 74px;
+    height: 74px;
+  }
+
+  .testimonial__quote {
+    left: 14px;
+    top: 12px;
+    font-size: 2.2rem;
+  }
+
+  .testimonial__name {
+    font-size: 1rem;
+  }
+
+  .testimonial__role {
+    font-size: .72rem;
+  }
+
+  .testimonial__description {
+    font-size: .82rem;
+  }
+
+  .testimonial__controls {
+    gap: 9px;
+  }
+
+  .testimonial__button {
+    flex-basis: 38px;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .testimonial__controls .swiper-pagination {
+    gap: 5px;
+  }
+
+  .testimonial__controls .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+  }
+
+  .testimonial__controls .swiper-pagination-bullet-active {
+    width: 20px;
+  }
 }
+
+/* ---------- Landscape phones ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .testimonial {
+    min-height: auto;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .testimonial__content {
+    margin-top: 28px;
+  }
+
+  .testimonial__swiper {
+    padding-bottom: 75px;
+  }
+
+  .testimonial__card {
+    min-height: 300px;
+  }
+}
+
+/* ---------- Short tablets / laptops ---------- */
 @media (max-height: 650px) and (min-width: 700px) {
-  .testimonial { padding-block: 35px; }
-  .testimonial__content { margin-top: -90px; }
-  .testimonial__card { min-height: 315px; padding-top: 45px; }
+  .testimonial {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .testimonial__content {
+    margin-top: 35px;
+  }
+
+  .testimonial__card {
+    min-height: 315px;
+    padding-top: 45px;
+  }
 }
+
+/* ---------- Accessibility ---------- */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
