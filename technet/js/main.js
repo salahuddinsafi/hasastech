@@ -579,7 +579,7 @@
 		},
 	});
 
-	// projectSlider3 (Work Showcase)
+// projectSlider3 (Work Showcase)
 	var projectSlider3 = new Swiper("#projectSlider3", {
 		speed: 1000,
 		slidesPerView: 1,
@@ -588,29 +588,14 @@
 		autoplay: false,
 		grabCursor: true,
 		simulateTouch: true,
+		slidesPerGroup: 1,
 		breakpoints: {
-			0: {
-				slidesPerView: 1,
-			},
-			576: {
-				slidesPerView: 1,
-			},
-			768: {
-				slidesPerView: 1,
-			},
-			992: {
-				slidesPerView: 1,
-				centeredSlides: true,
-				centeredSlidesBounds: true,
-			},
-			1200: {
-				slidesPerView: 4,
-				slidesPerGroup: 4,
-			},
-			1921: {
-				slidesPerView: 4,
-				slidesPerGroup: 4,
-			},
+			0: { slidesPerView: 1 },
+			576: { slidesPerView: 1 },
+			768: { slidesPerView: 1 },
+			992: { slidesPerView: 1, centeredSlides: true, centeredSlidesBounds: true },
+			1200: { slidesPerView: 4.5, centeredSlidesBounds: true, slidesPerGroup: 1 },
+			1921: { slidesPerView: 4.5, centeredSlidesBounds: true, slidesPerGroup: 1 },
 		},
 
 		// Navigation arrows
