@@ -581,7 +581,7 @@
 
 // projectSlider3 (Work Showcase)
 	var projectSlider3 = new Swiper("#projectSlider3", {
-		speed: 1000,
+		speed: 400,
 		slidesPerView: 1,
 		spaceBetween: 24,
 		loop: true,

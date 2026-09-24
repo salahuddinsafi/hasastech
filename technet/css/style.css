@@ -19312,10 +19312,10 @@ section.feature-section.style__new {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--title-color);
+  background: #0B1422;
   opacity: 0;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 .project-card3 .box-img img {
   border-radius: 8px;
@@ -19325,6 +19325,9 @@ section.feature-section.style__new {
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+.project-card3:hover .box-img:after {
+  opacity: 1;
 }
 .project-card3 .project-content {
   padding: 40px;
