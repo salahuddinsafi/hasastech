@@ -2954,6 +2954,11 @@ Section Title
     line-height: 46px;
   }
 }
+@media only screen and (max-width: 320px) {
+  .banner-section-one .banner-content-wrap {
+    margin-top: 190px;
+}
+}
 .banner-section-one .banner-content-wrap .banner-title h1 span {
   color: var(--theme-color2);
 }

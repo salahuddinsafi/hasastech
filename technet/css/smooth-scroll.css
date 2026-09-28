@@ -1,0 +1,118 @@
+/* ============================================================
+   Smart Smooth Scroll — Lenis + GSAP helpers
+   - Lenis required classes (https://lenis.darkroom.engineering)
+   - Top scroll progress bar
+   - Upgraded back-to-top with progress ring
+   - Reveal / parallax helpers (progressive enhancement only)
+   ============================================================ */
+
+/* --- Lenis core (required) --- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* When our smart scroll is active, kill native jumpy smooth to let Lenis own it */
+html.smooth-enabled {
+  scroll-behavior: auto;
+}
+html.smooth-fallback {
+  scroll-behavior: smooth;
+}
+
+/* --- Top progress bar --- */
+#smooth-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+#smooth-progress.is-visible {
+  opacity: 1;
+}
+#smooth-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #2e58ff 0%, #6d4aff 55%, #ff7657 100%);
+  box-shadow: 0 0 12px rgba(46, 88, 255, 0.55);
+  will-change: transform;
+}
+
+/* --- Upgraded back-to-top (keeps existing .scroll-to-top behavior) --- */
+.scroll-to-top {
+  --p: 0; /* 0-100 progress, set from JS */
+  overflow: visible;
+  isolation: isolate;
+}
+.scroll-to-top::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  z-index: -1;
+  background: conic-gradient(
+    var(--theme-color2, #2e58ff) calc(var(--p) * 1%),
+    rgba(255, 255, 255, 0.25) 0
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.scroll-to-top.is-visible::before {
+  opacity: 1;
+}
+.scroll-to-top.is-scrolling {
+  transform: scale(0.92);
+}
+
+/* --- Reveal helpers (JS sets initial state via GSAP, CSS only assists) --- */
+[data-reveal] {
+  will-change: transform, opacity;
+}
+[data-parallax],
+[data-speed] {
+  will-change: transform;
+}
+
+/* Subtle image zoom-out on scroll for hero-style figures (opt-in) */
+[data-zoom-out] {
+  will-change: transform;
+}
+
+/* --- Anchor target offset helper (sticky header ~84px) --- */
+section[id],
+footer[id] {
+  scroll-margin-top: 88px;
+}
+
+/* --- Reduced motion: disable all of it --- */
+@media (prefers-reduced-motion: reduce) {
+  #smooth-progress {
+    display: none;
+  }
+  html.smooth-enabled {
+    scroll-behavior: auto;
+  }
+  [data-reveal],
+  [data-parallax],
+  [data-speed] {
+    will-change: auto;
+  }
+}
