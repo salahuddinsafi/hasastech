@@ -714,9 +714,9 @@
 		line-height: 40px;
 		border-radius: 5px;
 		color: var(--theme-color-white);
-		position: absolute;
-		top: 15px;
-		right: -60px;
+		position: relative;
+		top: auto;
+		right: auto;
 	}
 
 	.mobile-menu .mega-sub-menu .mega-menu .mega-munu-bx li a {
@@ -745,7 +745,6 @@
 		line-height: 40px;
 		border-radius: 5px;
 		color: var(--theme-color-white);
-		display: none;
 	}
 
 	.main-header .ui-btn {
@@ -781,11 +780,6 @@
 	.sticky-header .inner-container {
 		align-items: center;
 		justify-content: space-around;
-	}
-
-	.sticky-header .mobile-nav-toggler {
-		color: var(--theme-color-white);
-		display: none;
 	}
 
 	.why-choose-section-one .why-choose-box .choose-title h1 {
@@ -1245,10 +1239,6 @@
 		margin-bottom: 20px;
 	}
 
-	.sticky-header .mobile-nav-toggler {
-		display: none !important;
-	}
-
 	.topbar {
 		display: none;
 	}
@@ -1268,13 +1258,6 @@
 @media only screen and (max-width: 992px) {
 
 	.sticky-header .mobile-nav-toggler {
-		color: var(--theme-color-white);
-		top: 25px;
-		right: -30px;
-		display: none;
-	}
-
-	.sticky-header .mobile-nav-toggler {
 		display: block;
 		margin-left: 20px;
 		width: 40px;
@@ -1284,9 +1267,9 @@
 		line-height: 40px;
 		border-radius: 5px;
 		color: var(--theme-color-white);
-		position: absolute;
-		top: -18px;
-		right: 0;
+		position: relative;
+		top: auto;
+		right: auto;
 	}
 
 	.mega-sub-menu {
@@ -1435,9 +1418,9 @@
 		line-height: 40px;
 		border-radius: 5px;
 		color: var(--theme-color-white);
-		position: absolute;
-		top: -18px;
-		right: 0;
+		position: relative;
+		top: auto;
+		right: auto;
 	}
 
 	.mega-sub-menu .mega-menu .mega-munu-bx li a {
@@ -3869,3 +3852,49 @@
 		line-height: 22px;
 	}
 }
+
+/* ============================================================
+   Professional Mobile Toggler — visibility fix (responsive only)
+   Root causes fixed:
+   1) .mobile-nav-toggler rule had display:block then display:none
+      (last one won = always hidden)
+   2) lnr-icon-bars font is not loaded, so icon was empty
+   3) sticky-header toggler positioned off-screen (right:-60px / -30px)
+   Fix: pure-CSS hamburger, always visible on tablet/mobile.
+   ============================================================ */
+@media only screen and (max-width: 1024px) {
+  .mobile-nav-toggler {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    margin-left: 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    background: linear-gradient(135deg, var(--theme-color2) 0%, #1e3dff 100%) !important;
+    box-shadow: 0 8px 20px rgba(46, 88, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+    color: #fff !important;
+    line-height: 1 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 60 !important;
+  }
+  .sticky-header .mobile-nav-toggler {
+    display: inline-flex !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin-left: 16px !important;
+    width: 46px !important;
+    height: 46px !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+

@@ -2440,17 +2440,104 @@ Sticky Header
 ====================================================================
 
 ***/
+/*** Professional Mobile Nav Toggler (pure CSS, no icon-font needed) ***/
 .mobile-nav-toggler {
   position: relative;
-  font-size: 24px;
-  line-height: 20px;
-  cursor: pointer;
-  color: var(--theme-color1);
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
   display: none;
-  top: 0px;
-  margin-left: 25px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, var(--theme-color2) 0%, #1e3dff 100%);
+  box-shadow: 0 8px 20px rgba(46, 88, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  margin-left: 16px;
   order: 8;
+  top: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  z-index: 50;
 }
+.mobile-nav-toggler:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 12px 26px rgba(46, 88, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.mobile-nav-toggler:active { transform: translateY(0) scale(0.97); }
+/* hide broken lnr font icon, draw professional hamburger with CSS */
+.mobile-nav-toggler .icon,
+.mobile-nav-toggler .lnr-icon-bars {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 18px;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.mobile-nav-toggler .icon::before,
+.mobile-nav-toggler .lnr-icon-bars::before,
+.mobile-nav-toggler .icon::after,
+.mobile-nav-toggler .lnr-icon-bars::after {
+  content: "" !important;
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.3s ease, opacity 0.25s ease;
+}
+.mobile-nav-toggler .icon::before,
+.mobile-nav-toggler .lnr-icon-bars::before { top: 0; }
+.mobile-nav-toggler .icon::after,
+.mobile-nav-toggler .lnr-icon-bars::after { top: auto; bottom: 0; }
+/* middle bar = the span itself, drawn via box-shadow-safe linear-gradient */
+.mobile-nav-toggler .icon,
+.mobile-nav-toggler .lnr-icon-bars {
+  background-image: linear-gradient(#fff, #fff) !important;
+  background-size: 22px 2px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.mobile-nav-toggler:hover .icon::before,
+.mobile-nav-toggler:hover .lnr-icon-bars::before { top: -1px; }
+.mobile-nav-toggler:hover .icon::after,
+.mobile-nav-toggler:hover .lnr-icon-bars::after { bottom: -1px; }
+/* animated to X when menu open */
+body.mobile-menu-visible .mobile-nav-toggler .icon,
+body.mobile-menu-visible .mobile-nav-toggler .lnr-icon-bars { background-image: none !important; }
+body.mobile-menu-visible .mobile-nav-toggler .icon::before,
+body.mobile-menu-visible .mobile-nav-toggler .lnr-icon-bars::before { top: 8px; transform: rotate(45deg); }
+body.mobile-menu-visible .mobile-nav-toggler .icon::after,
+body.mobile-menu-visible .mobile-nav-toggler .lnr-icon-bars::after { bottom: 8px; transform: rotate(-45deg); }
+body.mobile-menu-visible .mobile-nav-toggler { filter: brightness(1.08); }
+@media only screen and (max-width: 1024px) {
+  .mobile-nav-toggler { display: inline-flex !important; }
+  .main-header .main-box .nav-outer { gap: 0; }
+  .sticky-header .mobile-nav-toggler {
+    display: inline-flex !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin-left: 16px !important;
+    width: 46px !important;
+    height: 46px !important;
+    line-height: 1 !important;
+    color: #fff !important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .sticky-header .mobile-nav-toggler { display: inline-flex !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-toggler { transition: none !important; }
+}
+
 
 .mobile-menu {
   position: fixed;
@@ -2556,6 +2643,105 @@ Sticky Header
   opacity: 0;
   visibility: hidden;
 }
+/* 3D Motion for Mobile Menu - motion only, no design change */
+.mobile-menu {
+  perspective: 1400px;
+  -webkit-perspective: 1400px;
+  -webkit-transition: opacity 0.5s ease, visibility 0s linear 0.65s;
+  transition: opacity 0.5s ease, visibility 0s linear 0.65s;
+}
+.mobile-menu-visible .mobile-menu {
+  -webkit-transition: opacity 0.4s ease, visibility 0s linear 0s;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+.mobile-menu .menu-backdrop {
+  -webkit-transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+.mobile-menu-visible .mobile-menu .menu-backdrop {
+  -webkit-transition: opacity 0.45s ease, visibility 0s linear 0s;
+  transition: opacity 0.45s ease, visibility 0s linear 0s;
+}
+.mobile-menu .menu-box {
+  -webkit-transform: perspective(1400px) translateX(101%) rotateY(28deg) scale(0.96);
+  transform: perspective(1400px) translateX(101%) rotateY(28deg) scale(0.96);
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.45s ease, visibility 0s linear 0.6s;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.45s ease, visibility 0s linear 0.6s;
+}
+.mobile-menu-visible .mobile-menu .menu-box {
+  -webkit-transform: perspective(1400px) translateX(0%) rotateY(0deg) scale(1);
+  transform: perspective(1400px) translateX(0%) rotateY(0deg) scale(1);
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.45s ease, visibility 0s linear 0s;
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.45s ease, visibility 0s linear 0s;
+}
+.mobile-menu .close-btn {
+  -webkit-transform: perspective(700px) translateY(-50px) rotateX(-70deg) scale(0.8);
+  transform: perspective(700px) translateY(-50px) rotateX(-70deg) scale(0.8);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.45s ease, opacity 0.35s ease, visibility 0s linear 0.45s;
+  transition: transform 0.45s ease, opacity 0.35s ease, visibility 0s linear 0.45s;
+}
+.mobile-menu-visible .mobile-menu .close-btn {
+  -webkit-transform: perspective(700px) translateY(0px) rotateX(0deg) scale(1);
+  transform: perspective(700px) translateY(0px) rotateX(0deg) scale(1);
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s, opacity 0.4s ease 0.35s, visibility 0s linear 0s;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s, opacity 0.4s ease 0.35s, visibility 0s linear 0s;
+}
+.mobile-menu .upper-box,
+.mobile-menu .navigation > li,
+.mobile-menu .contact-list-one li,
+.mobile-menu .social-links {
+  -webkit-transform: perspective(900px) translateX(60px) rotateY(-24deg) translateZ(-70px);
+  transform: perspective(900px) translateX(60px) rotateY(-24deg) translateZ(-70px);
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  opacity: 0;
+  will-change: transform, opacity;
+  -webkit-transition: -webkit-transform 0.45s ease, opacity 0.35s ease, visibility 0s linear 0.45s;
+  transition: transform 0.45s ease, opacity 0.35s ease, visibility 0s linear 0.45s;
+}
+.mobile-menu-visible .mobile-menu .upper-box,
+.mobile-menu-visible .mobile-menu .navigation > li,
+.mobile-menu-visible .mobile-menu .contact-list-one li,
+.mobile-menu-visible .mobile-menu .social-links {
+  -webkit-transform: perspective(900px) translateX(0) rotateY(0deg) translateZ(0);
+  transform: perspective(900px) translateX(0) rotateY(0deg) translateZ(0);
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.5s ease, visibility 0s linear 0s;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.5s ease, visibility 0s linear 0s;
+}
+.mobile-menu-visible .mobile-menu .upper-box { -webkit-transition-delay: 0.25s; transition-delay: 0.25s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(1) { -webkit-transition-delay: 0.3s; transition-delay: 0.3s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(2) { -webkit-transition-delay: 0.36s; transition-delay: 0.36s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(3) { -webkit-transition-delay: 0.42s; transition-delay: 0.42s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(4) { -webkit-transition-delay: 0.48s; transition-delay: 0.48s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(5) { -webkit-transition-delay: 0.54s; transition-delay: 0.54s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(6) { -webkit-transition-delay: 0.6s; transition-delay: 0.6s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(7) { -webkit-transition-delay: 0.66s; transition-delay: 0.66s; }
+.mobile-menu-visible .mobile-menu .navigation > li:nth-child(n+8) { -webkit-transition-delay: 0.72s; transition-delay: 0.72s; }
+.mobile-menu-visible .mobile-menu .contact-list-one li:nth-child(1) { -webkit-transition-delay: 0.55s; transition-delay: 0.55s; }
+.mobile-menu-visible .mobile-menu .contact-list-one li:nth-child(2) { -webkit-transition-delay: 0.62s; transition-delay: 0.62s; }
+.mobile-menu-visible .mobile-menu .contact-list-one li:nth-child(3) { -webkit-transition-delay: 0.69s; transition-delay: 0.69s; }
+.mobile-menu-visible .mobile-menu .social-links { -webkit-transition-delay: 0.75s; transition-delay: 0.75s; }
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu, .mobile-menu .menu-backdrop, .mobile-menu .menu-box, .mobile-menu .close-btn,
+  .mobile-menu .upper-box, .mobile-menu .navigation > li, .mobile-menu .contact-list-one li, .mobile-menu .social-links {
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+
+
 
 .mobile-menu .navigation {
   position: relative;
