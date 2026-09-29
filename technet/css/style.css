@@ -18726,12 +18726,16 @@ section.feature-section.style__new {
 @media (max-width: 575px) {
   .customer-touch-wrap {
     justify-content: center;
-    padding: 30px 20px;
-    bottom: -95px;
+    padding: 15px 10px;
+    top: -95px;
   }
   .customer-touch-wrap .section-title {
     margin: 0 auto;
     text-align: center;
+    font-size: 12px;
+  }
+  .customer-touch-wrap .cust-touch {
+    font-size: 16px;
   }
 }
 
