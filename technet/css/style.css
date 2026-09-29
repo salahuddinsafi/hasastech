@@ -2932,7 +2932,7 @@ Section Title
   font-size: 25px;
 }
 .banner-section-one .banner-content-wrap {
-  margin-top: 90px;
+  margin-top: 230px;
 }
 .banner-section-one .banner-content-wrap .banner-title h1 {
   color: var(--theme-color-white);
@@ -7852,7 +7852,7 @@ Section Title
   right: 80px;
   background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22456%22%20height%3D%22442%22%20viewBox%3D%220%200%20456%20442%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%2020C0%208.9543%208.95431%200%2020%200H436C447.046%200%20456%208.95431%20456%2020V365.171C456%20376.217%20447.046%20385.171%20436%20385.171H408C396.954%20385.171%20388%20394.126%20388%20405.171V422C388%20433.046%20379.046%20442%20368%20442H20C8.95431%20442%200%20433.046%200%20422V20Z%22%20fill%3D%22url(%23paint0_linear_6252_273)%22%2F%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paint0_linear_6252_273%22%20x1%3D%22447.396%22%20y1%3D%22-28.0635%22%20x2%3D%22-94.5401%22%20y2%3D%22205.375%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23C9D1F3%22%2F%3E%3Cstop%20offset%3D%220.168269%22%20stop-color%3D%22%23E8ECFD%22%2F%3E%3Cstop%20offset%3D%220.826923%22%20stop-color%3D%22%23E8ECFD%22%2F%3E%3Cstop%20offset%3D%220.948648%22%20stop-color%3D%22%23C9D1F3%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
   border-radius: 20px;
-  padding: 60px 50px 60px;
+  padding: 24px 40px 84px;
   width: 456px;
   height: 442px;
 }
@@ -12072,6 +12072,13 @@ Section Title
     display: none;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .main-footer-one .footer-top-section .footer-shape3 {
+    display: none;
+  }
+}
+
 .main-footer-one .footer-circle {
   position: relative;
   text-align: right;
@@ -12125,7 +12132,7 @@ Section Title
   position: absolute;
   z-index: -1;
   content: "";
-  background-image: url(../images/main-home/footer-bgs.png);
+  /* background-image: url(../images/main-home/footer-bgs.png); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -18719,7 +18726,8 @@ section.feature-section.style__new {
 @media (max-width: 575px) {
   .customer-touch-wrap {
     justify-content: center;
-   padding: 30px 20px;
+    padding: 30px 20px;
+    bottom: -95px;
   }
   .customer-touch-wrap .section-title {
     margin: 0 auto;
